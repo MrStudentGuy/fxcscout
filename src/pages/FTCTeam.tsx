@@ -39,11 +39,16 @@ const FtcTeam = () => {
 		);
 	}
 	
-	return (
-		<div>
-			<h1>FTC Team #{params.teamNumber}</h1>
-		</div>
-	);
+	if (teamDetails) {
+		return (
+			<div>
+				<h1 className={"text-4xl font-bold"}>Team #{params.teamNumber} - {teamDetails.team_name_short}</h1>
+				<h2 className={"capitalize text-3xl"}>{teamDetails.team_name_long}</h2>
+				<p className={"text-2xl"}>Location: {teamDetails.city}, {teamDetails.country}</p>
+				<p className={"text-2xl"}>Region: {teamDetails.region_key}</p>
+			</div>
+		);
+	}
 };
 
 export default FtcTeam;
